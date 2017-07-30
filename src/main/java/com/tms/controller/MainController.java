@@ -16,17 +16,18 @@ import java.io.IOException;
  * Created by Dell on 7/23/2017.
  */
 
-@WebServlet("/jsp/*")
+@WebServlet(".jsp")
 public class MainController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 
  //       resp.sendRedirect("index.jsp");
 //        HttpSession session = req.getSession();
 //
 //
 //        session.setAttribute("sessionId", ((User) uu).getUserId());
-        //req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
 
