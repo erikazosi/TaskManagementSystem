@@ -20,7 +20,7 @@ public class DeadlineNotifyServlet implements ServletContextListener{
         scheduler = Executors.newSingleThreadScheduledExecutor();
         // scheduler.scheduleAtFixedRate(new DailyJob(), 0, 1, TimeUnit.DAYS);
         System.out.println("start");
-        scheduler.scheduleAtFixedRate(new DeadlineCheck(), 0, 5, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(new DeadlineCheck(), 0, 1, TimeUnit.DAYS);
         //scheduler.scheduleAtFixedRate(new MinJob(), 0, 1, TimeUnit.MINUTES);
         // scheduler.scheduleAtFixedRate(new SecJob(), 0, 15, TimeUnit.SECONDS);
     }
