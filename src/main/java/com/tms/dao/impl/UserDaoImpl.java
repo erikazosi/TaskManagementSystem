@@ -6,6 +6,7 @@ import com.tms.utils.Connect;
 import com.tms.utils.UserUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  * Created by Dell on 7/25/2017.
@@ -20,20 +21,18 @@ public class UserDaoImpl implements UserDao {
     }
 
     public void addAdmin(User user) {
-        // User user = UserUtils.convertDTOToEntity(usersDTO);
-        session.save(user);
+        SessionFactory sf = new AnnotationConfiguration().configure().buildSessionFactory();
+        org.hibernate.Session s = sf.openSession();
+        s.beginTransaction();
+        s.save(user);
+
+        s.getTransaction().commit();
+        s.close();
 
 
-      //  Connect.endSession(session);
+      // Connect.endSession(session);
     }
 
-    public void editAdmin(User user) {
-
-    }
-
-    public void deleteAdmin(int id) {
-
-    }
 
     public User findById(int id) {
 

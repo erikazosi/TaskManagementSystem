@@ -13,16 +13,18 @@ import java.util.Date;
 public class TaskDTO {
 
 
-  //  public static Object set;
+    //  public static Object set;
     private int id;
-        private Date Deadline;
-        private String taskDesp;
-        private String title;
-        private Date createdDate;
-        private int createdBy;
-        private int assignedTo;
-        private String status;
-        private String remark;
-    }
+    private Date Deadline;
+    private String taskDesp;
+    private String title;
+    private Date createdDate;
+    private int createdBy;
+    private int assignedTo;
+    private String status;
+    private String remark;
+    private String notify;
+    private String fileUpload;
+}
 
 

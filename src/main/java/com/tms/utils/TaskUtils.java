@@ -17,25 +17,27 @@ import java.util.List;
  * Created by Dell on 7/24/2017.
  */
 public class TaskUtils {
-    public static TaskDTO convertRequestToDTO(HttpServletRequest req) throws ParseException {
+    public static TaskDTO convertRequestToDTO(HttpServletRequest req,String fileName) throws ParseException {
         TaskDTO taskDTO = new TaskDTO();
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-        taskDTO.setCreatedDate(new java.sql.Date(new Date().getTime()));
+        taskDTO.setCreatedDate(formatter.parse(formatter.format(new Date())));
         taskDTO.setCreatedBy(Integer.parseInt(req.getParameter("createdBy")));
         taskDTO.setAssignedTo(Integer.parseInt(req.getParameter("assignTo")));
         taskDTO.setDeadline(formatter.parse(req.getParameter("deadline")));
         taskDTO.setStatus("pending");
         taskDTO.setTitle(req.getParameter("title"));
         taskDTO.setTaskDesp(req.getParameter("desc"));
+        taskDTO.setNotify("n");
+        taskDTO.setFileUpload(fileName);
 
         return taskDTO;
 
     }
 
     public static TaskDTO convertEditRequestToDTO(HttpServletRequest req, int id) throws ParseException {
-        TaskDTO taskDTO= new TaskDTO();
+        TaskDTO taskDTO = new TaskDTO();
         taskDTO.setTitle(req.getParameter("title"));
         taskDTO.setTaskDesp(req.getParameter("taskDesp"));
         taskDTO.setId(id);
@@ -54,6 +56,8 @@ public class TaskUtils {
         task.setCreatedDate(taskDTO.getCreatedDate());
         task.setAssignedTo(taskDTO.getAssignedTo());
         task.setStatus(taskDTO.getStatus());
+        task.setNotify(taskDTO.getNotify());
+        task.setFileUpload(taskDTO.getFileUpload());
 
         return task;
 
@@ -80,11 +84,11 @@ public class TaskUtils {
             dash.setCreatedDate(task.getCreatedDate());
             dash.setTaskDesp(task.getTaskDesp());
             dash.setStatus(task.getStatus());
-            dash.setAssignedTo(us.findById(task.getAssignedTo()).getUsername());
+            //  dash.setAssignedTo(us.findById(task.getAssignedTo()).getUsername());
             dash.setCreatedBy(us.findById(task.getCreatedBy()).getUsername());
             dash.setTaskId(task.getId());
             dash.setRemark(task.getRemark());
-
+            dash.setFileUpload(task.getFileUpload());
             result.add(dash);
         }
 

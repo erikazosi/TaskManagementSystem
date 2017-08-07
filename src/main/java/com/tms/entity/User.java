@@ -22,8 +22,10 @@ public class User {
     private String adminType;
     private String username;
     private String password;
+    private String email;
 
     //@Column(nullable = false, columnDefinition = "int default 100")
+    @Temporal(TemporalType.DATE)
     private Date createdDate;
     private String status;
 

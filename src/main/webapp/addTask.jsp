@@ -21,7 +21,7 @@
         response.sendRedirect("Login.jsp");
     } else {
 
-        System.out.println((int) sessionId);
+
 
     }
 %>
@@ -31,11 +31,11 @@
 </head>
 <body>
 <h2>Add Task</h2>
-<form method="post" action="/addTask">
+<form method="post" action="/addTask" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Enter task title"><br><br>
     <input type="text" name="desc" placeholder="Enter task Description"><br><br>
     <label>Deadline:</label>
-    <input type="date" name="deadline" placeholder="Enter Date"><br><br>
+    <input type="date" name="deadline" placeholder="yyyy-MM-dd"><br><br>
 
 
     <label>Assign To: </label>
@@ -49,7 +49,11 @@
     </select><br><br>
     <input type="hidden" name="createdOn">
     <input type="hidden" name="createdBy" value="<%=request.getParameter("adminId")%>">
+
+    <input type="file" name="fileUpload"><br><br>
+
     <input type="submit" name="submit" value="Add Task">
 </form>
+
 </body>
 </html>

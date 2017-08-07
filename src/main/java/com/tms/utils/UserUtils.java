@@ -18,6 +18,7 @@ public class UserUtils {
         usersDTO.setPassword(hashed);
         usersDTO.setAdminType(req.getParameter("adminType"));
         usersDTO.setCreatedDate(new java.sql.Date(new Date().getTime()));
+        usersDTO.setEmail(req.getParameter("email"));
 
         return usersDTO;
     }
@@ -27,6 +28,7 @@ public class UserUtils {
         user.setUsername(usersDTO.getUsername());
         user.setPassword(usersDTO.getPassword());
         user.setAdminType(usersDTO.getAdminType());
+        user.setEmail(usersDTO.getEmail());
 
         return user;
     }

@@ -8,19 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ include file = "Logout.jsp" %>
-<%
-    Object sessionId = session.getAttribute("sessionId");
-    System.out.println(sessionId);
-    if (sessionId == null) {
+<%--<%--%>
+    <%--Object sessionId = session.getAttribute("sessionId");--%>
+    <%--System.out.println(sessionId);--%>
+    <%--if (sessionId == null) {--%>
 
-        response.sendRedirect("Login.jsp");
-    }
-    else {
+        <%--response.sendRedirect("Login.jsp");--%>
+    <%--}--%>
+    <%--else {--%>
 
-        System.out.println((int) sessionId);
-
-    }
-%>
+    <%--}--%>
+<%--%>--%>
 <html>
 <head>
     <title>Add Admin</title>
@@ -36,6 +34,7 @@
     <input type="radio" name="adminType" value="Super Admin"> Super Admin<br><br>
     <input type="hidden" name="createdDate">
     <input type="hidden" name="status">
+    <input type="email" name="email" placeholder="Enter Email"><br><BR>
     <input type="submit" name="Add" value="Add User">
 </form>
 

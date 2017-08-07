@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect("Sdashboard?adminId=" + user.getId());
             } else
 
-                System.out.println("It does not match");
+                resp.sendRedirect("Login.jsp");
         }
     }
 

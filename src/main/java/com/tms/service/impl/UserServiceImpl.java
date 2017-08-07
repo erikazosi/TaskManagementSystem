@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
     public void addAdmin(UsersDTO usersDTO) {
         User user= UserUtils.convertDTOToEntity(usersDTO);
+
         userDao.addAdmin(user);
     }
 

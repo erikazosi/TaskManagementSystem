@@ -21,9 +21,15 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     public void addTask(Task task) {
-        session.save(task);
+        SessionFactory sf = new AnnotationConfiguration().configure().buildSessionFactory();
+        org.hibernate.Session s = sf.openSession();
+        s.beginTransaction();
 
-        //Connect.endSession(session);
+
+        s.save(task);
+
+        s.getTransaction().commit();
+        s.close();
     }
 
     public boolean editTask(Task task) {

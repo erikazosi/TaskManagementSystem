@@ -21,4 +21,5 @@ public class DashboardTaskResDto {
     private String assignedTo;
     private String status;
     private String remark;
+    private String fileUpload;
 }

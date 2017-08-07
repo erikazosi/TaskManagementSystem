@@ -751,6 +751,6 @@ public class BCrypt {
     }
 
     public static void main(String[] args) {
-        System.out.println(BCrypt.hashpw("test", BCrypt.gensalt()));
+        System.out.println(BCrypt.hashpw("a", BCrypt.gensalt()));
     }
 }
